@@ -166,6 +166,7 @@ function get_remote_action(){
 $(".Guides").click(function(){
 	id = $(this).attr("data_id");
 	url = "Guides/"+id+".html";
+	document.location=url;
 	$.get(url, function(res) {
 		document.location="#display";
 		$("#display").html(res);
