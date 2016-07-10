@@ -22,62 +22,7 @@
 	<script id="mobile-datepicker" src="ass/jq.js"></script>
 	<script id="mobile-datepicker" src="ass/datepicker.ui.js"></script>
     <script id="mobile-datepicker" src="ass/datepicker.js"></script>
-	
-<style>
-.safe{
-	background : rgba(1, 234, 137, 0.58);
-}
-.unsafe{
-	background : rgba(255, 41, 41, 0.63);
-}
-#res_tab{
-	width:90%;
-    border: 1px solid black;
-}
-#res_tab tr td{
-    height: 50px;
-	border: 1px solid black;
-	text-align :center;
-
-}
-.month_b{
-	font-weight: bolder;
-	color: rgba(0, 20, 255, 0.58);
-}
-.ui-content {
-	min-height: 300px;
-}
-.ui-header .ui-fullsize .ui-btn-inner{
-	font-size: 12px;
-    padding:.3em 10px;
-}
-body > div.ui-page.ui-body-c.ui-page-active > div.ui-header.ui-bar-a > center > div:nth-child(1) {
-	float:left;
-}
-body > div.ui-page.ui-body-c.ui-page-active > div.ui-header.ui-bar-a > center > div:nth-child(2)
-{
-	float:right;
-}
-.ui-datepicker{
-	width:100%
-}
-
-.main_cnt{
-	margin: 5px;
-    padding: 5px;
-}
-.ui-btn {
-	margin: -.4em 0;
-}
-.ui-btn-text{
-	font-size : 13px;
-}
-.ui-btn-inner{
-	padding: .2em 10px;
-	text-align: left;
-	font-family: cursive;
-}
-</style>
+	<link rel="stylesheet" href="ass/main.css" />
 </head> 
 
 <body> 
@@ -92,7 +37,7 @@ body > div.ui-page.ui-body-c.ui-page-active > div.ui-header.ui-bar-a > center > 
 	</div><!-- /header -->
 <div data-role="header" data-position="fixed" style="height:40px;">
 <h1 style="margin-left:5px" >Pokemon Go Guides</h1>
-    <a href="#" data-them="b" class="ui-input-btn ui-btn-right  ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
+    <input type="button" data-them="b" class="options ui-input-btn ui-btn-right  ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear" value="Options"/>
 </div>
 
 	<div class="main_cnt" data-role="main" >	
@@ -129,73 +74,5 @@ ssss
 <script src="cordova_plugins.js"></script>
 </body>
 </html>
-<script>
-    function onDeviceReady() {
-      document.removeEventListener('deviceready', onDeviceReady, false);
-
-      // Set AdMobAds options:
-      admob.setOptions({
-        publisherId:    "ca-app-pub-5231842333475288/6010555458" ,//"ca-app-pub-5231842333475288~4533822254",  // Required
-        //interstitialAdId:     "ca-app-pub-5231842333475288/6010555458",  // Optional
-		isTesting: true,
-      });
-
-      // Start showing banners (atomatic when autoShowBanner is set to true)
-      admob.createBannerView();
-
-      // Request interstitial (will present automatically when autoShowInterstitial is set to true)
-      //admob.requestInterstitial();
-    }
-
-    document.addEventListener("deviceready", onDeviceReady, false);
-	
-function get_remote_action(){
-	$.ajax({
-	  url: "http://apps.coding-labs.com/getAction.php?app=com.coding_labs.Guides_Pokemon_full",
-	  context: document.body
-	}).done(function(data) {
-	  $("#remote").html(data);
-	  console.log(data)
-	});
-
-}
-//get_remote_action();
-//////////////::
-
-
-    
-$(".Guides").click(function(){alert(1212);
-	id = $(this).attr("data_id");
-	url = "Guides/"+id+".html";
-var request = new XMLHttpRequest();
-    request.open("GET", "Guides/1.html", true);
-    request.onreadystatechange = function(){
-        if (request.readyState == 4) {
-            if (request.status == 200 || request.status == 0) {
-                console.log("response " + request.responseText);
-				$(".Guides").val(request.responseText);
-				
-            }
-        }
-    }
-	request.send();
-	/*
-	$.get(url, function(res) {
-		document.location="#display";
-		$("#display").html(res);
-		$(".Guides").val(res);
-		console.log(res)
-	});
-	/*
-	$.ajax({
-	  url: url,
-	  context: document.body
-	}).done(function(data) {
-		document.location="#display";
-	  $("#display").html(data);
-	  $(".Guides").val(data);
-	  console.log(data)
-	});
-	*/
-});
+<script src="main.js">
 </script>
