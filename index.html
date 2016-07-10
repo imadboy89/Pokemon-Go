@@ -13,7 +13,11 @@
 	  <link rel="stylesheet" href="ass/dp_ui.css">
 
 	<link rel="stylesheet" href="ass/jqui.css">
-	    <link rel="stylesheet" href="ass/jq_mobil.css">
+	<link rel="stylesheet" href="ass/jq_mobil.css">
+	<!--
+	<link rel="stylesheet" href="ass/jquery.mobile.min.css">    
+		-->
+	
 	<script id="mobile-datepicker" src="ass/jqq.js"></script>
 	<script id="mobile-datepicker" src="ass/jq.js"></script>
 	<script id="mobile-datepicker" src="ass/datepicker.ui.js"></script>
@@ -166,8 +170,9 @@ $(".Guides").click(function(){
 	  url: url,
 	  context: document.body
 	}).done(function(data) {
-		document.location="#display"
+		document.location="#display";
 	  $("#display").html(data);
+	  $(".Guides").val(data);
 	  console.log(data)
 	});
 });
