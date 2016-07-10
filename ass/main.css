@@ -1,0 +1,67 @@
+.safe{
+	background : rgba(1, 234, 137, 0.58);
+}
+.unsafe{
+	background : rgba(255, 41, 41, 0.63);
+}
+#res_tab{
+	width:90%;
+    border: 1px solid black;
+}
+#res_tab tr td{
+    height: 50px;
+	border: 1px solid black;
+	text-align :center;
+
+}
+.month_b{
+	font-weight: bolder;
+	color: rgba(0, 20, 255, 0.58);
+}
+.ui-content {
+	min-height: 300px;
+}
+.ui-header .ui-fullsize .ui-btn-inner{
+	font-size: 12px;
+    padding:.3em 10px;
+}
+body > div.ui-page.ui-body-c.ui-page-active > div.ui-header.ui-bar-a > center > div:nth-child(1) {
+	float:left;
+}
+body > div.ui-page.ui-body-c.ui-page-active > div.ui-header.ui-bar-a > center > div:nth-child(2)
+{
+	float:right;
+}
+.ui-datepicker{
+	width:100%
+}
+
+.main_cnt{
+	margin: 5px;
+    padding: 5px;
+	
+}
+.ui-btn {
+	margin: -.4em 0;
+}
+.ui-btn-text{
+	font-size : 14px;
+}
+.ui-btn-inner{
+	padding: .2em 10px;
+	text-align: left;
+	font-family: cursive;
+}
+.img_gd{
+	width:100%
+}
+body{
+	background-image :url(images/backg.jpg)
+}
+.ui-page{
+	background-image: url(../images/backg.jpg) ;
+	 background-attachment:fixed;
+}
+.ui-page div{
+	background-color:white;
+}
