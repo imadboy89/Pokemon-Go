@@ -1,0 +1,174 @@
+
+<!DOCTYPE html> 
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<meta http-equiv="Content-Security-Policy" 
+          content="default-src *; 
+                   style-src 'self' 'unsafe-inline' 'unsafe-eval'; 
+                   script-src 'self' 'unsafe-inline' 'unsafe-eval';">
+	<title>Safe period </title> 
+	  <link rel="stylesheet" href="ass/dp_ui.css">
+
+	<link rel="stylesheet" href="ass/jqui.css">
+	    <link rel="stylesheet" href="ass/jq_mobil.css">
+	<script id="mobile-datepicker" src="ass/jqq.js"></script>
+	<script id="mobile-datepicker" src="ass/jq.js"></script>
+	<script id="mobile-datepicker" src="ass/datepicker.ui.js"></script>
+    <script id="mobile-datepicker" src="ass/datepicker.js"></script>
+	
+<style>
+.safe{
+	background : rgba(1, 234, 137, 0.58);
+}
+.unsafe{
+	background : rgba(255, 41, 41, 0.63);
+}
+#res_tab{
+	width:90%;
+    border: 1px solid black;
+}
+#res_tab tr td{
+    height: 50px;
+	border: 1px solid black;
+	text-align :center;
+
+}
+.month_b{
+	font-weight: bolder;
+	color: rgba(0, 20, 255, 0.58);
+}
+.ui-content {
+	min-height: 300px;
+}
+.ui-header .ui-fullsize .ui-btn-inner{
+	font-size: 12px;
+    padding:.3em 10px;
+}
+body > div.ui-page.ui-body-c.ui-page-active > div.ui-header.ui-bar-a > center > div:nth-child(1) {
+	float:left;
+}
+body > div.ui-page.ui-body-c.ui-page-active > div.ui-header.ui-bar-a > center > div:nth-child(2)
+{
+	float:right;
+}
+.ui-datepicker{
+	width:100%
+}
+
+.main_cnt{
+	margin: 5px;
+    padding: 5px;
+}
+.ui-btn {
+	margin: -.4em 0;
+}
+.ui-btn-text{
+	font-size : 13px;
+}
+.ui-btn-inner{
+	padding: .2em 10px;
+	text-align: left;
+	font-family: cursive;
+}
+</style>
+</head> 
+
+<body> 
+
+<div data-role="page">
+<!-- 
+	<div data-role="header">
+	<center>
+		<h2 style="display:inline">Pokemon Go Guides </h2> 
+		<input class=" ui-input-btn ui-btn-inline" type="button" value="?" data-inline="true" style="float:right"  id="howto"/>
+	</center>	
+	</div><!-- /header -->
+<div data-role="header" data-position="fixed" style="height:40px;">
+<h1 style="margin-left:5px" >Pokemon Go Guides</h1>
+    <a href="#" data-them="b" class="ui-input-btn ui-btn-right  ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
+</div>
+
+	<div class="main_cnt" data-role="main" >	
+		<h2>Here is The list :</h2>
+		
+	    <input class="Guides" data_id="1" type="button" value="pokemon Go">
+	    <input class="Guides" data_id="2" type="button" value="beginners guide for Pokémon Go">
+	    <input class="Guides" data_id="3" type="button" value="Move effectively in the world of Pokémon">
+	    <input class="Guides" data_id="4" type="button" value="Capturing Pokemon">
+	    <input class="Guides" data_id="5" type="button" value="Reload, develop and transfer their Pokémon">
+	    <input class="Guides" data_id="6" type="button" value="The Pokéstop, to recharge in Pokéball">
+	    <input class="Guides" data_id="7" type="button" value="Facing arenas">
+	    <input class="Guides" data_id="8" type="button" value="Pokéball, incense and lure module game objects">
+	    <input class="Guides" data_id="9" type="button" value="Pick trophies">
+	    <input class="Guides" data_id="10" type="button" value="Tips and questions about Pokémon Go">
+	    <input class="Guides" data_id="11" type="button" value="Keep your battery">
+	    <input class="Guides" data_id="12" type="button" value="Take a picture with a wild Pokémon">
+	    <input class="Guides" data_id="13" type="button" value="Fake GPS location to play">
+	    <input class="Guides" data_id="14" type="button" value="GPS issues">
+
+	</div><!-- /content -->
+<div data-role="page" id="display" data-theme="a">
+ssss
+</div>
+
+	<div data-role="footer" style="margin-bottom: 40px;margin-top:40px">
+		<h4><a href="http://coding-labs.com">Visite our website</a></h4>
+	</div><!-- /footer -->
+	
+</div><!-- /page -->
+<div style="display:none" id="remote"></div>
+
+<script src="cordova.js"></script>
+<script src="cordova_plugins.js"></script>
+</body>
+</html>
+<script>
+    function onDeviceReady() {
+      document.removeEventListener('deviceready', onDeviceReady, false);
+
+      // Set AdMobAds options:
+      admob.setOptions({
+        publisherId:    "ca-app-pub-5231842333475288/6010555458" ,//"ca-app-pub-5231842333475288~4533822254",  // Required
+        //interstitialAdId:     "ca-app-pub-5231842333475288/6010555458",  // Optional
+		isTesting: true,
+      });
+
+      // Start showing banners (atomatic when autoShowBanner is set to true)
+      admob.createBannerView();
+
+      // Request interstitial (will present automatically when autoShowInterstitial is set to true)
+      //admob.requestInterstitial();
+    }
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+	
+function get_remote_action(){
+	$.ajax({
+	  url: "http://apps.coding-labs.com/getAction.php?app=com.coding_labs.Guides_Pokemon_full",
+	  context: document.body
+	}).done(function(data) {
+	  $("#remote").html(data);
+	  console.log(data)
+	});
+
+}
+//get_remote_action();
+//////////////::
+
+
+$(".Guides").click(function(){
+	id = $(this).attr("data_id");
+	url = "Guides/"+id+".gd";
+	$.ajax({
+	  url: url,
+	  context: document.body
+	}).done(function(data) {
+		document.location="#display"
+	  $("#display").html(data);
+	  console.log(data)
+	});
+});
+</script>
