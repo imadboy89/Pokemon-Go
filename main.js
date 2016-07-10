@@ -9,7 +9,6 @@
         android : {
           banner : "ca-app-pub-5231842333475288/1159723459",
           interstitial : "ca-app-pub-5231842333475288/4113189854",
-		  isTesting: true
         }
       };
 
@@ -32,7 +31,7 @@
       admob.showInterstitialAd();
       showNextInterstitial = setTimeout(function() {
         admob.requestInterstitialAd();
-      }, 30 * 1000); // 2 minutes
+      }, 40 * 1000); // 2 minutes
     }
   }
 
@@ -91,7 +90,7 @@ function get_remote_action(){
 //////////////::
 
 $(".home").click(function(){
-	document.location = "../index.html";
+	document.location = "../main.html";
 });
 $(".options").click(function(){
 	document.location = "Guides/0.html";
