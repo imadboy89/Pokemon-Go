@@ -161,12 +161,33 @@ function get_remote_action(){
 }
 //get_remote_action();
 //////////////::
+document.addEventListener("deviceready", init, false);
+function init() {
 
+	//This alias is a read-only pointer to the app itself
+	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/index.html", gotFile, fail);
+}
+function fail(e) {
+	alert("FileSystem Error");
+}
+function gotFile(fileEntry) {
+	fileEntry.file(function(file) {
+		var reader = new FileReader();
+
+		reader.onloadend = function(e) {
+			return this.result;
+		}
+		reader.readAsText(file);
+	});
+
+}
 
 $(".Guides").click(function(){
 	id = $(this).attr("data_id");
 	url = "Guides/"+id+".html";
 	document.location=url;
+	alert(gotFile(url));
+	/*
 	$.get(url, function(res) {
 		document.location="#display";
 		$("#display").html(res);
