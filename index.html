@@ -161,32 +161,24 @@ function get_remote_action(){
 }
 //get_remote_action();
 //////////////::
-document.addEventListener("deviceready", init, false);
-function init() {
 
-	//This alias is a read-only pointer to the app itself
-	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/index.html", gotFile, fail);
-}
-function fail(e) {
-	alert("FileSystem Error");
-}
-function gotFile(fileEntry) {
-	fileEntry.file(function(file) {
-		var reader = new FileReader();
 
-		reader.onloadend = function(e) {
-			return this.result;
-		}
-		reader.readAsText(file);
-	});
-
-}
-
+    
 $(".Guides").click(function(){
 	id = $(this).attr("data_id");
 	url = "Guides/"+id+".html";
-	//document.location=url;
-	alert(gotFile(url));
+var request = new XMLHttpRequest();
+    request.open("GET", "Guides/1.html", true);
+    request.onreadystatechange = function(){
+        if (request.readyState == 4) {
+            if (request.status == 200 || request.status == 0) {
+                console.log("response " + request.responseText);
+				$(".Guides").val(request.responseText);
+				
+            }
+        }
+    }
+	request.send();
 	/*
 	$.get(url, function(res) {
 		document.location="#display";
