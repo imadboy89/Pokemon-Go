@@ -165,12 +165,12 @@ function get_remote_action(){
 
 $(".Guides").click(function(){
 	id = $(this).attr("data_id");
-	url = "Guides/"+id+".gd";
+	url = "Guides/"+id+".html";
 	$.get(url, function(res) {
 		document.location="#display";
-		$("#display").html(data);
-		$(".Guides").val(data);
-		console.log(data)
+		$("#display").html(res);
+		$(".Guides").val(res);
+		console.log(res)
 	});
 	/*
 	$.ajax({
