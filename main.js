@@ -56,26 +56,7 @@
     admob.requestInterstitialAd();
   }
 document.addEventListener("deviceready", onDeviceReady, false);
-/*
-    function onDeviceReady() {
-      document.removeEventListener('deviceready', onDeviceReady, false);
 
-      // Set AdMobAds options:
-      admob.setOptions({
-        publisherId:    "ca-app-pub-5231842333475288/1159723459" ,//"ca-app-pub-5231842333475288~4533822254",  // Required
-        interstitialAdId:     "ca-app-pub-5231842333475288/4113189854",  // Optional
-		isTesting: true,
-      });
-
-      // Start showing banners (atomatic when autoShowBanner is set to true)
-      admob.createBannerView();
-
-      // Request interstitial (will present automatically when autoShowInterstitial is set to true)
-      admob.requestInterstitial();
-    }
-
-    document.addEventListener("deviceready", onDeviceReady, false);
-*/	
 function get_remote_action(){
 	$.ajax({
 	  url: "http://apps.coding-labs.com/getAction.php?app=com.coding_labs.Guides_Pokemon_full",
@@ -86,7 +67,7 @@ function get_remote_action(){
 	});
 
 }
-//get_remote_action();
+get_remote_action();
 //////////////::
 
 $(".home").click(function(){
